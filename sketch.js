@@ -3,45 +3,59 @@ function preload(){
 }
 var spacing = 50;
 function setup() {
-  // put setup code here
+
   createCanvas(windowWidth, windowHeight);
-noLoop();
+  noLoop();
 }
 
 
 
 
 function draw() {
-  background(0);
+  background(240, 98, 146);
 
+  //create rectangles
   for (var x = 0; x <= width; x += spacing) {
     for (var y = 0; y <= height; y += spacing) {
-      // this random function will return a value between 0 and 1
-      var on = random(1);
-      // this variable is for the size of circles
-      var a = random(50, 100);
-      // if the value of on is greater than .5 (meaning 50% chance)
+
+      var on = random(3);
+
+      var a = random(75, 150);
+
       if (on > .5) {
         noFill();
-        stroke(random(255), 100, 0);
-        ellipse(x, y, a, a);
+        strokeWeight(1);
+        stroke(random(255), 255, 255);
+        rect(x, y, a, a);
 
         noFill();
-        stroke(100, random(255), 0);
-        ellipse(x, y, a / 2, a / 2);
+        strokeWeight(1);
+        stroke(255, random(254), 0);
+        rect(x, y, a / 2, a / 2);
 
         noFill();
-        stroke(100, 0, random(255));
-        ellipse(x, y, a + 20, a + 20);
+        strokeWeight(1);
+        stroke(41, 182, random(246));
+        rect(x, y, a + 20, a + 20);
 
         noStroke();
-        fill(random(160, 200), 0, 0);
-        ellipse(x, y, a / 8, a / 8);
+        fill(random(255, 0), 238, 88);
+        rect(x, y, a / 8, a / 8);
+
+        //text
+        strokeWeight(5);
+        stroke(26, 35, 126);
+        fill(255);
+        textSize(35);
+        text('Press the mouse and see!', width/2 - 180  , height/2 +280 );
+
+
+
       }
     }
   }
 }
-
+// redraw rectangles with mouse
 function mousePressed() {
   redraw();
 }
